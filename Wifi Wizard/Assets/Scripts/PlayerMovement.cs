@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
- 
+    Ray checkGround;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        // undo move if not above anything
+        if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out _))
+        {
+            Vector3 undo = transform.right * x * -1 + transform.forward * z * -1;
+            controller.Move(undo * speed * Time.deltaTime);
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
