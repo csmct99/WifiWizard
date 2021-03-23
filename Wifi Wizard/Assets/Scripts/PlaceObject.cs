@@ -7,7 +7,8 @@ public class PlaceObject : MonoBehaviour
     // Init vars
     Ray myRay;
     RaycastHit hit;
-    public GameObject objectToInstantiate;
+    public GameObject leftClickInstantiate;
+    public GameObject middleClickInstantiate;
     Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2);
   
     // Update is called once per frame
@@ -19,12 +20,17 @@ public class PlaceObject : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) // what to do when mouse button pressed
             {
                 // Place
-                GameObject placed = Instantiate(objectToInstantiate, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                Instantiate(leftClickInstantiate, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            }
+            if (Input.GetMouseButtonDown(2))
+            {
+                // Place
+                Instantiate(middleClickInstantiate, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
             }
             else if (Input.GetMouseButtonDown(1))
             {
                 // Destroy if same tag
-                if (hit.transform.gameObject.tag == objectToInstantiate.tag)
+                if (hit.transform.gameObject.tag == leftClickInstantiate.tag || hit.transform.gameObject.tag == leftClickInstantiate.tag)
                 {
                     Destroy(hit.transform.gameObject);
                 }
