@@ -19,7 +19,7 @@ public class PlaceObject : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) // what to do when mouse button pressed
             {
                 // Place
-                Instantiate(objectToInstantiate, hit.point, Quaternion.identity);
+                GameObject placed = Instantiate(objectToInstantiate, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
             }
             else if (Input.GetMouseButtonDown(1))
             {
