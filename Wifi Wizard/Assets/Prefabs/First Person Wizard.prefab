@@ -298,3 +298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftClickInstantiate: {fileID: 4898523421059965267, guid: 41f1f90f3ade262409977504fc4a04b6, type: 3}
   middleClickInstantiate: {fileID: 4898523421059965267, guid: 2d44512eb250de540b590985b353d5e2, type: 3}
+  ignoreMask:
+    serializedVersion: 2
+    m_Bits: 512

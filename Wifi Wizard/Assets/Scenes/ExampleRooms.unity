@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 69938171}
   - component: {fileID: 69938170}
   - component: {fileID: 69938169}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Starting Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 112841199}
   - component: {fileID: 112841198}
   - component: {fileID: 112841197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Z Walkway 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 295125262}
   - component: {fileID: 295125261}
   - component: {fileID: 295125260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 315368516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walkway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 351077874}
   - component: {fileID: 351077873}
   - component: {fileID: 351077872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Back Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 426043391}
   - component: {fileID: 426043390}
   - component: {fileID: 426043389}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,23 +863,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &526013550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4898523421059965267, guid: ee6ad90a082853340961e539d1604a3a, type: 3}
-  m_PrefabInstance: {fileID: 555773098}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &526013551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526013550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2fed34ab9f19e41b71acbe1f345abe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &555773098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,7 +944,7 @@ GameObject:
   - component: {fileID: 594409877}
   - component: {fileID: 594409876}
   - component: {fileID: 594409875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1096,7 @@ GameObject:
   - component: {fileID: 660460088}
   - component: {fileID: 660460087}
   - component: {fileID: 660460086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1191,7 @@ GameObject:
   - component: {fileID: 713443342}
   - component: {fileID: 713443341}
   - component: {fileID: 713443340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1475,7 @@ GameObject:
   - component: {fileID: 909233275}
   - component: {fileID: 909233274}
   - component: {fileID: 909233273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1570,7 @@ GameObject:
   - component: {fileID: 913409050}
   - component: {fileID: 913409049}
   - component: {fileID: 913409048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,7 +1665,7 @@ GameObject:
   - component: {fileID: 967017479}
   - component: {fileID: 967017478}
   - component: {fileID: 967017477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1846,7 +1829,7 @@ GameObject:
   - component: {fileID: 1116045787}
   - component: {fileID: 1116045786}
   - component: {fileID: 1116045785}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1941,7 +1924,7 @@ GameObject:
   - component: {fileID: 1239393884}
   - component: {fileID: 1239393883}
   - component: {fileID: 1239393882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Back Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2036,7 +2019,7 @@ GameObject:
   - component: {fileID: 1307107049}
   - component: {fileID: 1307107048}
   - component: {fileID: 1307107047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2131,7 +2114,7 @@ GameObject:
   - component: {fileID: 1357190990}
   - component: {fileID: 1357190989}
   - component: {fileID: 1357190988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2448,7 +2431,7 @@ GameObject:
   - component: {fileID: 1540751645}
   - component: {fileID: 1540751644}
   - component: {fileID: 1540751643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: X Walkway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2543,7 +2526,7 @@ GameObject:
   - component: {fileID: 1554596458}
   - component: {fileID: 1554596457}
   - component: {fileID: 1554596456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2638,7 +2621,7 @@ GameObject:
   - component: {fileID: 1631101274}
   - component: {fileID: 1631101273}
   - component: {fileID: 1631101272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Z Walkway 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2733,7 +2716,7 @@ GameObject:
   - component: {fileID: 1685722163}
   - component: {fileID: 1685722162}
   - component: {fileID: 1685722161}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,7 +2849,7 @@ GameObject:
   - component: {fileID: 1905781144}
   - component: {fileID: 1905781143}
   - component: {fileID: 1905781142}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Back Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3035,7 +3018,7 @@ GameObject:
   - component: {fileID: 1937011651}
   - component: {fileID: 1937011650}
   - component: {fileID: 1937011649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3130,7 +3113,7 @@ GameObject:
   - component: {fileID: 1983385153}
   - component: {fileID: 1983385152}
   - component: {fileID: 1983385151}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Z Walkway 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3225,7 +3208,7 @@ GameObject:
   - component: {fileID: 2053310960}
   - component: {fileID: 2053310959}
   - component: {fileID: 2053310958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

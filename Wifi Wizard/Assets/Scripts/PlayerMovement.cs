@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool AboveGround(Vector3 position)
     {
-        return Physics.Raycast(position, transform.TransformDirection(Vector3.down), out _);
+        return Physics.Raycast(position, transform.TransformDirection(Vector3.down), out _, Mathf.Infinity, groundMask);
     }
 
     // Update is called once per frame

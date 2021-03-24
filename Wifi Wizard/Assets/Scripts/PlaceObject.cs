@@ -10,12 +10,13 @@ public class PlaceObject : MonoBehaviour
     public GameObject leftClickInstantiate;
     public GameObject middleClickInstantiate;
     Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2);
-  
+    public LayerMask ignoreMask;
+
     // Update is called once per frame
     void Update()
     {
         myRay = Camera.main.ScreenPointToRay(screenCenter); // ray will go center of main camera to mouse direction
-        if (Physics.Raycast(myRay, out hit)) // if the ray hits something, store info in this var
+        if (Physics.Raycast(myRay, out hit, Mathf.Infinity, ~ignoreMask)) // if the ray hits something, store info in this var
         {
             if (Input.GetMouseButtonDown(0)) // what to do when mouse button pressed
             {
