@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TestPrefab
   - Wifi
+  - Point
   layers:
   - Default
   - TransparentFX
