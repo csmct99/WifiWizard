@@ -20,7 +20,13 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
- 
+    Ray checkGround;
+
+    bool AboveGround(Vector3 position)
+    {
+        return Physics.Raycast(position, transform.TransformDirection(Vector3.down), out _, Mathf.Infinity, groundMask);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -35,8 +41,19 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        // Only move in the X and Z directions if doing so wouldn't make you fall off
+        Vector3 move = (transform.right * x + transform.forward * z) * speed * Time.deltaTime;
+        Vector3 moveX = Vector3.Scale(move, Vector3.right);
+        Vector3 moveZ = Vector3.Scale(move, Vector3.forward);
+
+        if (AboveGround(transform.position + moveX))
+        {
+            controller.Move(moveX);
+        }
+        if (AboveGround(transform.position + moveZ))
+        {
+            controller.Move(moveZ);
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
