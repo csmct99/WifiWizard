@@ -21,8 +21,8 @@ public class PlaceObject : MonoBehaviour {
 
     // Update is called once per frame
     void LateUpdate() {
-        myRay = Camera.main.ScreenPointToRay(screenCenter); // ray will go center of main camera to mouse direction
-        if (Physics.Raycast(myRay, out hit, Mathf.Infinity, ~ignoreMask)) { // if the ray hits something, store info in this var
+            RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, ~ignoreMask)) { // if the ray hits something, store info in this var
             if (Input.GetMouseButtonDown(0)){ // Left Click
                 
                 AccessPoint ap = inventory.contents[0];
