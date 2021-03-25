@@ -1025,6 +1025,11 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &483143966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 959110110934734723, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+  m_PrefabInstance: {fileID: 959110109416471096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &555773098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1252,6 +1257,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917766960135771646, guid: ab904c97d6a00d04692115ba298ef440, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 483143966}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab904c97d6a00d04692115ba298ef440, type: 3}
 --- !u!1 &660460084
