@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform mainCamera;
     [SerializeField] private LayerMask groundMask;
-
+  
 
     [Header("Settings")]
     [Range(1f, 30f)]
@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour {
     private float xRotation = 0f;
     private bool isGrounded;
     private Ray checkGround;
+    private float footStepDelay = 0.8f;
+    private float nextFootStep = 0;
 
 
     private void Start(){
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         Movement();
         CameraControl();
+        AudioControl();
     }
 
 
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 moveX = Vector3.Scale(move, Vector3.right);
         Vector3 moveZ = Vector3.Scale(move, Vector3.forward);
 
+
         if (IsAboveGround(transform.position + moveX)) {
             controller.Move(moveX);
         }
@@ -80,6 +84,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -94,6 +99,21 @@ public class PlayerMovement : MonoBehaviour {
 
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    private void AudioControl()
+    {
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) 
+            && isGrounded)
+        {
+            nextFootStep -= Time.deltaTime;
+            if (nextFootStep <= 0)
+            {
+                AudioManager.instance.PlayOneShot("PlayerStep");
+                // attempt at faster footstep sounds at faster speeds
+                nextFootStep += (footStepDelay - (speed / 75));
+            }
+        }
     }
 
     bool IsAboveGround(Vector3 position) {
