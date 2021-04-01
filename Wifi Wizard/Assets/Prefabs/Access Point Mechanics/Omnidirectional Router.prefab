@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wifiShape: {fileID: 8181504762629898171, guid: 8738c149f998b2148b4307e3bbec1951, type: 3}
   sizeY: 15
-  sizeXZ: 16
+  sizeXZ: 15
   offset: 0
 --- !u!1 &8445363804114043161
 GameObject:

@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour {
 
     [SerializeField] private GameObject ap1;
     [SerializeField] private GameObject ap2;
+    [SerializeField] private GameObject ap3;
 
     [SerializeField] private GameObject canvas;
 
@@ -17,7 +18,9 @@ public class Inventory : MonoBehaviour {
     private void Start(){
         contents.Add(new AccessPoint(5, "Torus_AP", ap1));
 
-        contents.Add(new AccessPoint(3, "Sphere_AP", ap2)); 
+        contents.Add(new AccessPoint(3, "Sphere_AP", ap2));
+
+        contents.Add(new AccessPoint(1, "Cone_AP", ap3));
     }
 
     private void Update(){ //Update the UI every frame //TODO: Make this a event based thing instead of constant updates

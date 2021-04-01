@@ -21,6 +21,26 @@ public class PlaceObject : MonoBehaviour
         inventory = GetComponent<Inventory>();
     }
 
+    void placeFromInventory(int slot, RaycastHit hit)
+    {
+        AccessPoint ap = inventory.contents[slot];
+        print(ap.displayName);
+        print(inventory.contents.Count);
+        if (ap.amount > 0)
+        {
+            // Place
+            Instantiate(ap.prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            // play place success sound
+            AudioManager.instance.PlayOneShot("PlaceAPSuccess");
+            // ap.amount--;
+        }
+        else
+        {
+            // play place fail sound
+            AudioManager.instance.PlayOneShot("PlaceAPFailure");
+        }
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
@@ -29,53 +49,21 @@ public class PlaceObject : MonoBehaviour
         { // if the ray hits something, store info in this var
             if (Input.GetMouseButtonDown(0))
             { // Left Click
-
-                AccessPoint ap = inventory.contents[0];
-                print(ap.displayName);
-                print(inventory.contents.Count);
-                print("in");
-                if (ap.amount > 0)
-                {
-                    // Place
-                    Instantiate(ap.prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                    // play place success sound
-                    AudioManager.instance.PlayOneShot("PlaceAPSuccess");
-                    ap.amount--;
-                }
-                else
-                {
-                    // play place fail sound
-                    AudioManager.instance.PlayOneShot("PlaceAPFailure");
-                }
-
-
-
-
+                placeFromInventory(0, hit);
             }
-            if (Input.GetMouseButtonDown(2))
+            else if (Input.GetMouseButtonDown(2))
             { // Middle Mouse
-
-                AccessPoint ap = inventory.contents[1];
-                if (ap.amount > 0)
-                {
-                    // Place
-                    Instantiate(ap.prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                    // play place success sound
-                    AudioManager.instance.PlayOneShot("PlaceAPSuccess");
-                    ap.amount--;
-                }
-                else
-                {
-                    // play place fail sound
-                    AudioManager.instance.PlayOneShot("PlaceAPFailure");
-                }
-
+                placeFromInventory(1, hit);
+            }
+            else if (Input.GetMouseButtonDown(4))
+            { // Middle Mouse
+                placeFromInventory(2, hit);
             }
             else if (Input.GetMouseButtonDown(1))
             { //Right Click
 
                 // Destroy if same tag
-                if (hit.transform.gameObject.tag == leftClickInstantiate.tag || hit.transform.gameObject.tag == leftClickInstantiate.tag)
+                if (hit.transform.gameObject.tag == leftClickInstantiate.tag)
                     Destroy(hit.transform.gameObject);
 
 

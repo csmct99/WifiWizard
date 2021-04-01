@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CreateWifi : MonoBehaviour
 {
-    public GameObject wifiShape;
-    public int sizeY;
-    public int sizeXZ;
-    public int offset;
-    GameObject area;
+    [SerializeField] private GameObject wifiShape;
+    [SerializeField] private int sizeY;
+    [SerializeField] private int sizeXZ;
+    [SerializeField] private int offset;
+    private GameObject area;
 
     void Awake()
     {
-        area = Instantiate(wifiShape, transform.position + (transform.up*offset), Quaternion.FromToRotation(transform.forward, transform.up));
-        area.transform.localScale = Vector3.Scale(area.transform.localScale, new Vector3(sizeXZ, sizeY, sizeXZ));
+        area = Instantiate(wifiShape, transform.position + (transform.up*offset), transform.rotation * wifiShape.transform.rotation);
+        area.transform.localScale = Vector3.Scale(area.transform.localScale, new Vector3(sizeXZ, sizeXZ, sizeY));
     }
 
     void OnDestroy()
