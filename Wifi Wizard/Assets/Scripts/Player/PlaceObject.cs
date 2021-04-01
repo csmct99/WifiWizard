@@ -24,6 +24,8 @@ public class PlaceObject : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if(GameManager.GamePaused) return;
+
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, ~ignoreMask))
         { // if the ray hits something, store info in this var

@@ -33,8 +33,15 @@ public class PlayerMovement : MonoBehaviour {
     [Range(100f,1000f)]
     [SerializeField] private float mouseSensitivity = 250f;
 
+    [Header("Keybinds")]
+    [SerializeField] private KeyCode pauseButton = KeyCode.Escape;
+
     #endregion //End of editor exposed variables
 
+
+    
+    private float pauseStartTime = -999f;
+    private const float pauseCooldown = 0.3f;
     private Vector3 velocity;
     private float xRotation = 0f;
     private bool isGrounded;
@@ -42,19 +49,67 @@ public class PlayerMovement : MonoBehaviour {
     private float footStepDelay = 0.8f;
     private float nextFootStep = 0;
 
+    private GameObject canvas = null;
+    private GameObject pauseMenu;
+    
 
-    private void Start(){
+
+    void Start(){
         Cursor.lockState = CursorLockMode.Locked;
 
         if(mainCamera == null) mainCamera = Camera.main.gameObject.transform;
+
+        if(canvas == null){
+            canvas = GameObject.Find("Canvas"); //Bad practice to search the entire level for a string but its a small project so idc. It wont be bad at this scale.
+            
+            if(canvas == null){
+                Debug.LogError("No canvas found on this level. Add one from the prefabs folder.");
+            }else{ //Found canvas
+                pauseMenu = canvas.transform.Find("PauseMenu").gameObject; //Bad practice to search the entire level for a string but its a small project so idc. It wont be bad at this scale.
+                if(pauseMenu == null) Debug.LogError("No pause menu found.");
+            }
+        }
     }
 
     void Update() {
-        Movement();
-        CameraControl();
-        AudioControl();
+        UIControl();
+        if(!GameManager.GamePaused){
+            Movement();
+            CameraControl();
+            AudioControl();
+        }
     }
 
+
+    private void UIControl(){
+
+        //Update UI control settings
+        if(GameManager.GamePaused && Cursor.lockState != CursorLockMode.Confined){  //Game is paused ... needs player UI update
+            Cursor.lockState = CursorLockMode.Confined;
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+
+            //Debug.Log("Game PAUSED, updating UI " + GameManager.GamePaused);
+
+        }else if(!GameManager.GamePaused && Cursor.lockState == CursorLockMode.Confined){ //Game is unpaused ... needs player UI update
+            Cursor.lockState = CursorLockMode.Locked;
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+
+            //Debug.Log("Game unpaused, updating UI " + GameManager.GamePaused);
+        }else
+
+        //Check if player is trying to pause game
+        if(Input.GetKeyDown(pauseButton) && Time.time - pauseStartTime > pauseCooldown){
+            
+            pauseStartTime = Time.time;
+            GameManager.GamePaused = !GameManager.GamePaused;
+            //Debug.Log("Setting pause state to " + GameManager.GamePaused);
+            
+        }
+
+        //Debug.Log("Can pause: " + (Time.deltaTime - pauseStartTime > pauseCooldown));
+    }
 
     private void Movement(){
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
