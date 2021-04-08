@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour {
     private Ray checkGround;
     private float footStepDelay = 0.8f;
     private float nextFootStep = 0;
+    private bool changeStep;
+    private bool jumpControlBool;
 
     private GameObject canvas = null;
     private GameObject pauseMenu;
@@ -55,6 +57,16 @@ public class PlayerMovement : MonoBehaviour {
 
 
     void Start(){
+
+        // check for audio manager
+        if (AudioManager.instance == null)
+        {
+            // create it if it doesn't exist
+            GameObject audioManager = new GameObject("AudioManager");
+            audioManager.AddComponent<AudioManager>();
+        }
+
+
         Cursor.lockState = CursorLockMode.Locked;
 
         if(mainCamera == null) mainCamera = Camera.main.gameObject.transform;
@@ -164,11 +176,41 @@ public class PlayerMovement : MonoBehaviour {
             nextFootStep -= Time.deltaTime;
             if (nextFootStep <= 0)
             {
-                AudioManager.instance.PlayOneShot("PlayerStep");
-                // attempt at faster footstep sounds at faster speeds
-                nextFootStep += (footStepDelay - (speed / 75));
+                if (changeStep)
+                {
+                    changeStep = false;
+                    AudioManager.instance.PlayOneShot("PlayerStepL");
+                    // attempt at faster footstep sounds at faster speeds
+                    nextFootStep += (footStepDelay - (speed / 75));
+                }
+                else
+                {
+                    changeStep = true;
+                    AudioManager.instance.PlayOneShot("PlayerStepR");
+                    // attempt at faster footstep sounds at faster speeds
+                    nextFootStep += (footStepDelay - (speed / 75));
+                }
             }
         }
+
+        // player is in the air
+        if (!isGrounded)
+        {
+            jumpControlBool = true;
+        }
+
+        // play the sound when the player lands
+        if (jumpControlBool && isGrounded)
+        {
+            AudioManager.instance.PlayOneShot("PlayerJumpLanding");
+            jumpControlBool = false;
+        }
+
+        
+        
+        
+
+        
     }
 
     bool IsAboveGround(Vector3 position) {
