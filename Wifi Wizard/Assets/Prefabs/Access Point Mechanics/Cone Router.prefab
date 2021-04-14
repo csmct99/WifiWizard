@@ -110,5 +110,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wifiShape: {fileID: 8181504762629898171, guid: 071e423cfda4a09478ec90c7e370bac6, type: 3}
   sizeY: -100
-  sizeXZ: 15
+  sizeXZ: 45
   offset: 100
