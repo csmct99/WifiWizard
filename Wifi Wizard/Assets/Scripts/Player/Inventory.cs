@@ -17,11 +17,11 @@ public class Inventory : MonoBehaviour {
     public List<AccessPoint> contents = new List<AccessPoint>(); //Make empty inventory contents.
 
     private void Start(){
-        contents.Add(new AccessPoint(5, "Torus_AP", ap1));
+        contents.Add(new AccessPoint(1, "Torus_AP", ap1));
 
         contents.Add(new AccessPoint(3, "Sphere_AP", ap2));
 
-        contents.Add(new AccessPoint(2, "Cone_AP", ap3));
+        contents.Add(new AccessPoint(1, "Cone_AP", ap3));
 
 
         gameManager = GameManager.Find();

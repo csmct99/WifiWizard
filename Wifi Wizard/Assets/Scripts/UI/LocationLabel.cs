@@ -17,7 +17,8 @@ public class LocationLabel : MonoBehaviour
      * Change the HUD label upon collision
      */
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("Player moved to :" + gameObject.name);
+        if(!other.CompareTag("Player")) return;
+        //Debug.Log("Player moved to :" + gameObject.name);
         ui.ChangeLocation(gameObject.name);
     }
 }
