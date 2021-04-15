@@ -15,7 +15,7 @@ public class Encrypter : MonoBehaviour {
         string plain = "{'test':'test', 'test2':'test2'}";
         string encrypted = Encrypt<AesManaged>(plain, "LbumPXV9qSEBTkjxLafCzRQRk5tR4xnv", "VfsqM67o6g1JJ1coTDADu28GIhDKx9JV");
 
-        Debug.Log(encrypted);
+        //Debug.Log(encrypted);
     }
 
     public static string Encrypt<T>(string value, string password, string salt)
@@ -27,8 +27,8 @@ public class Encrypter : MonoBehaviour {
 
         byte[] rgbKey = rgb.GetBytes(algorithm.KeySize >> 3);
         byte[] rgbIV = rgb.GetBytes(algorithm.BlockSize >> 3);
-        Debug.Log("Key: " + Convert.ToBase64String(rgbKey, 0, rgbKey.Length));
-        Debug.Log("Salt: " + Convert.ToBase64String(rgbIV, 0, rgbIV.Length));
+        //Debug.Log("Key: " + Convert.ToBase64String(rgbKey, 0, rgbKey.Length));
+        //Debug.Log("Salt: " + Convert.ToBase64String(rgbIV, 0, rgbIV.Length));
 
 
 
