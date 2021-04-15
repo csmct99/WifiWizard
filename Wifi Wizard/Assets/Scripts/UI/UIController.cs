@@ -81,6 +81,8 @@ public class UIController : MonoBehaviour {
             foreach(Transform t in slots){
                 if(t.CompareTag("InventorySlot")){
                     Transform ui = t.Find("Icon");
+                    Debug.Log(contents[n].displayName);
+                    Debug.Log(contents[n].amount.ToString());
                     ui.Find("Name").gameObject.GetComponent<TMP_Text>().text = contents[n].displayName;
                     ui.Find("AmountLeft").gameObject.GetComponent<TMP_Text>().text = contents[n].amount.ToString();
                     n++; //This is a hardcoded prototype only way of doing this. Ill change it later

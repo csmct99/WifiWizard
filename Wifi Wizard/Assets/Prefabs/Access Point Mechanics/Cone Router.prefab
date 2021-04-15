@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wifiShape: {fileID: 8181504762629898171, guid: 071e423cfda4a09478ec90c7e370bac6, type: 3}
-  sizeY: -100
-  sizeXZ: 45
-  offset: 100
+  sizeY: -40
+  sizeXZ: 18
+  offset: 40
 --- !u!114 &-2749331320291791232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 1
-  displayName: Cone AP
+  displayName: Cone_AP
   prefab: {fileID: 4898523421059965267}
 --- !u!1 &4922102332357990818
 GameObject:

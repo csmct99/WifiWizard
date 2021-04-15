@@ -30,8 +30,8 @@ public class PlaceObject : MonoBehaviour
     void placeFromInventory(int slot, RaycastHit hit)
     {
         AccessPoint ap = inventory.contents[slot];
-        print(ap.displayName);
-        print(inventory.contents.Count);
+        //print(ap.displayName);
+        //print(inventory.contents.Count);
         if (ap.amount > 0)
         {
             // Place
@@ -44,6 +44,21 @@ public class PlaceObject : MonoBehaviour
         {
             // play place fail sound
             AudioManager.instance.PlayOneShot("PlaceAPFailure");
+        }
+    }
+
+    private void DestroyAP(RaycastHit hit){
+        // Destroy if AP
+        AccessPoint ap = hit.transform.gameObject.GetComponent<AccessPoint>();
+        if (ap != null)
+        {
+            Destroy(hit.transform.gameObject);
+            int i = inventory.contents.FindIndex(x => x.displayName == ap.displayName);
+            //Debug.Log(i);
+            //Debug.Log(inventory.contents.Count);
+            inventory.contents[i].amount++;
+            gameManager.UI.UpdateInventory(inventory.contents);
+
         }
     }
 
@@ -64,13 +79,13 @@ public class PlaceObject : MonoBehaviour
             //Debug.Log(hitAp);
 
             if(hitAp != null){
-                gameManager.UI.ShowTooltip("'E' to configure AP");
+                gameManager.UI.ShowTooltip("Click To Remove AP");
             }else{
                 gameManager.UI.ShowTooltip("");
             }
 
             if (Input.GetMouseButtonDown(0)) { // Left Click
-
+                if(hitAp != null){DestroyAP(hit);return;}
                 AccessPoint ap = inventory.contents[0];
                 //print(ap.displayName);
                 //print(inventory.contents.Count);
@@ -96,7 +111,7 @@ public class PlaceObject : MonoBehaviour
 
             } 
             else if (Input.GetMouseButtonDown(2)) { // Middle Mouse
-
+                if (hitAp != null) { DestroyAP(hit); return; }
                 AccessPoint ap = inventory.contents[1];
                 if (ap.amount > 0)
                 {
@@ -116,7 +131,7 @@ public class PlaceObject : MonoBehaviour
             }
             else if (Input.GetMouseButtonDown(1))
             { //Right Click
-
+                if (hitAp != null) { DestroyAP(hit); return; }
 
                 AccessPoint ap = inventory.contents[2];
                 if (ap.amount > 0)
