@@ -3495,6 +3495,10 @@ PrefabInstance:
       propertyPath: pauseButton
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 3192950752840098779, guid: ab904c97d6a00d04692115ba298ef440, type: 3}
+      propertyPath: mouseSensitivity
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 5917766960135771646, guid: ab904c97d6a00d04692115ba298ef440, type: 3}
       propertyPath: ap3
       value: 
