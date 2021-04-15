@@ -117,7 +117,28 @@ public class PlaceObject : MonoBehaviour
             else if (Input.GetMouseButtonDown(1))
             { //Right Click
 
-                // Destroy if AP
+
+                AccessPoint ap = inventory.contents[2];
+                if (ap.amount > 0)
+                {
+                    // Place
+                    Instantiate(ap.prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                    // play place success sound
+                    AudioManager.instance.PlayOneShot("PlaceAPSuccess");
+                    ap.amount--;
+                    gameManager.UI.UpdateInventory(inventory.contents);
+                }
+                else
+                {
+                    // play place fail sound
+                    AudioManager.instance.PlayOneShot("PlaceAPFailure");
+                } 
+
+
+            }
+
+            /*
+                            // Destroy if AP
                 AccessPoint ap = hit.transform.gameObject.GetComponent<AccessPoint>();
                 if (ap != null){
                     Destroy(hit.transform.gameObject);
@@ -126,10 +147,7 @@ public class PlaceObject : MonoBehaviour
                     gameManager.UI.UpdateInventory(inventory.contents);
 
                 }
-                    
-
-
-            }
+                */
         
             if(Input.GetKeyDown(KeyCode.E)){
                 

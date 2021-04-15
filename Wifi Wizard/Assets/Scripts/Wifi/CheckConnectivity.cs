@@ -19,7 +19,9 @@ public class CheckConnectivity : MonoBehaviour {
     private void OnTriggerEnter(Collider c) {
         AccessPoint ap;
         Transform parent = c.gameObject.transform.parent;
+        Debug.Log("Triger");
         if(parent != null){
+            Debug.Log("Parent found");
             if (ap = parent.gameObject.GetComponent<AccessPoint>())
             {
                 connectedAPs.Add(ap);

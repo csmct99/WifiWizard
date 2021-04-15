@@ -19,7 +19,9 @@ public class Inventory : MonoBehaviour {
     private void Start(){
         contents.Add(new AccessPoint(5, "Torus_AP", ap1));
 
-        contents.Add(new AccessPoint(3, "Sphere_AP", ap2)); 
+        contents.Add(new AccessPoint(3, "Sphere_AP", ap2));
+
+        contents.Add(new AccessPoint(2, "Cone_AP", ap3));
 
 
         gameManager = GameManager.Find();
