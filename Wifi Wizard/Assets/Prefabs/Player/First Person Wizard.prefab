@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3192950751096772766}
   - component: {fileID: 3192950751096772761}
   - component: {fileID: 3192950751096772760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 3192950752313181942}
   - component: {fileID: 3192950752313181940}
   - component: {fileID: 3192950752313181943}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3192950752380242761}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,9 +207,9 @@ GameObject:
   - component: {fileID: 3192950752840098779}
   - component: {fileID: 3639684375958703542}
   - component: {fileID: 5917766960135771646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: First Person Wizard
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   jumpHeight: 3
   groundDistance: 0.5
   mouseSensitivity: 456
+  pauseButton: 27
 --- !u!114 &3639684375958703542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +289,8 @@ MonoBehaviour:
   middleClickInstantiate: {fileID: 4898523421059965267, guid: 2d44512eb250de540b590985b353d5e2, type: 3}
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
+  maxDistance: 5
 --- !u!114 &5917766960135771646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,5 +305,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ap1: {fileID: 4898523421059965267, guid: 41f1f90f3ade262409977504fc4a04b6, type: 3}
   ap2: {fileID: 4898523421059965267, guid: 2d44512eb250de540b590985b353d5e2, type: 3}
-  canvas: {fileID: 0}
-  contents: []
+

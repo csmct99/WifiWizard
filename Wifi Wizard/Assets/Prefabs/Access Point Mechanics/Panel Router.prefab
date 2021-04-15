@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 161993270901716970}
   - component: {fileID: 6591909539837978918}
   - component: {fileID: 6599430652491928253}
+  - component: {fileID: 8159183294897453292}
   m_Layer: 0
   m_Name: Panel Router
   m_TagString: TestPrefab
@@ -112,3 +113,18 @@ MonoBehaviour:
   sizeY: 15
   sizeXZ: 15
   offset: 15
+--- !u!114 &8159183294897453292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898523421059965267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb85fbb11bc49c40b3f5e55657b26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
+  displayName: Sphere_AP
+  prefab: {fileID: 4898523421059965267}

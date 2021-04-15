@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour {
     private GameObject canvas = null;
     private GameObject pauseMenu;
     
+    private GameManager gameManager = null;
+    
 
 
     void Start(){
@@ -71,20 +73,13 @@ public class PlayerMovement : MonoBehaviour {
 
         if(mainCamera == null) mainCamera = Camera.main.gameObject.transform;
 
-        if(canvas == null){
-            canvas = GameObject.Find("Canvas"); //Bad practice to search the entire level for a string but its a small project so idc. It wont be bad at this scale.
-            
-            if(canvas == null){
-                Debug.LogError("No canvas found on this level. Add one from the prefabs folder.");
-            }else{ //Found canvas
-                pauseMenu = canvas.transform.Find("PauseMenu").gameObject; //Bad practice to search the entire level for a string but its a small project so idc. It wont be bad at this scale.
-                if(pauseMenu == null) Debug.LogError("No pause menu found.");
-            }
-        }
+        gameManager = GameManager.Find();
+
     }
 
     void Update() {
         UIControl();
+
         if(!GameManager.GamePaused){
             Movement();
             CameraControl();
@@ -97,25 +92,20 @@ public class PlayerMovement : MonoBehaviour {
 
         //Update UI control settings
         if(GameManager.GamePaused && Cursor.lockState != CursorLockMode.Confined){  //Game is paused ... needs player UI update
-            Cursor.lockState = CursorLockMode.Confined;
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0;
+            gameManager.UI.PauseGame(true);
 
             //Debug.Log("Game PAUSED, updating UI " + GameManager.GamePaused);
 
         }else if(!GameManager.GamePaused && Cursor.lockState == CursorLockMode.Confined){ //Game is unpaused ... needs player UI update
-            Cursor.lockState = CursorLockMode.Locked;
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1;
+            gameManager.UI.PauseGame(false);
 
             //Debug.Log("Game unpaused, updating UI " + GameManager.GamePaused);
-        }else
 
-        //Check if player is trying to pause game
-        if(Input.GetKeyDown(pauseButton) && Time.time - pauseStartTime > pauseCooldown){
+        }else if(Input.GetKeyDown(pauseButton) && Time.time - pauseStartTime > pauseCooldown){ //Check if player is trying to pause game
             
             pauseStartTime = Time.time;
-            GameManager.GamePaused = !GameManager.GamePaused;
+            gameManager.UI.PauseGame(true);
+            
             //Debug.Log("Setting pause state to " + GameManager.GamePaused);
             
         }
