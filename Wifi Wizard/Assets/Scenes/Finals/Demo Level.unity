@@ -12604,6 +12604,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.97626853
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.4481905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.023731522
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.049000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -43.11905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -23.271294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659817110, guid: 45957bb568e09524c803d701648bc18e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0000076293945
+      objectReference: {fileID: 0}
     - target: {fileID: 959110110934734723, guid: 45957bb568e09524c803d701648bc18e, type: 3}
       propertyPath: m_Name
       value: Canvas
