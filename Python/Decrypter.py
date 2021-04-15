@@ -1,7 +1,8 @@
 import base64, sys
 import Crypto.Cipher.AES
-
-
+import json
+from os import listdir
+from os.path import isfile, join
 
 def Decrypt(value):
     password = base64.b64decode('fiBSzZHjhgjOi0FPNNrrF5AIj7mSCOXJDH5aV0NDtQA=') # This value is fixed in Unity binaries and in this
@@ -21,4 +22,37 @@ def Decrypt(value):
 
     return batch
 
-print(Decrypt('3M2C0LJH38o0gAvH6dEYfUhcIQG2TKG/1G3Hd+FxsKQOKuTVy3VlKCFyRBI7R9wQzADAvWOLC03ilm+r8Llx9Qs5S3FdlewlyKLXbTESZRE='))
+path = sys.argv[1]
+
+if (path[-6:] == ".score"):
+
+    print("Reading data in file: " + path)
+
+    file = open(path, "r")
+    key = file.read()
+    student = json.loads(Decrypt(key))
+
+    print("Student name: " + student['student'])
+    print("Student number: " + student['number'])
+    print("Student score: " + student['score'])
+else:
+    print("Reading all files in directory: " + path)
+    try:
+        files = [f for f in listdir(path) if isfile(join(path, f))]
+        for file in files:
+            try:
+                if(file[-6:] == ".score"): #Found a score file
+                    try:
+                        #print("Got score file");
+                        f = open(path + "\\"+file, "r")
+                        key = f.read()
+                        student = json.loads(Decrypt(key))
+
+                        print(student['student'] + "(" + student['number'] + ") " + student['score'])
+                    except:
+                        print("Failed to open file (is it corrupted?): " + file)
+            except:
+                print("Failed to read file: " + file)
+    except:
+        print("Could not read files in the given directory")
+

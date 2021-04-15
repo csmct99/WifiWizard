@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform mainCamera;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask VisibilityLayersWithVisualizer;
+    [SerializeField] private LayerMask VisibilityLayersWithoutVisualizer;
   
 
     [Header("Settings")]
@@ -34,12 +36,14 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float mouseSensitivity = 250f;
 
     [Header("Keybinds")]
-    [SerializeField] private KeyCode pauseButton = KeyCode.Escape;
+    [SerializeField] private KeyCode pauseButton = KeyCode.P;
+
+    [SerializeField] private KeyCode visualizerButton = KeyCode.V;
 
     #endregion //End of editor exposed variables
 
 
-    
+    private bool canSeeAP = true;
     private float pauseStartTime = -999f;
     private const float pauseCooldown = 0.3f;
     private Vector3 velocity;
@@ -89,6 +93,12 @@ public class PlayerMovement : MonoBehaviour {
 
 
     private void UIControl(){
+
+        if(Input.GetKeyDown(visualizerButton)){ //Toggle enable viewing AP coverage
+
+            Camera.main.cullingMask = (canSeeAP) ? VisibilityLayersWithVisualizer : VisibilityLayersWithoutVisualizer;
+            canSeeAP = !canSeeAP;
+        }
 
         //Update UI control settings
         if(GameManager.GamePaused && Cursor.lockState != CursorLockMode.Confined){  //Game is paused ... needs player UI update

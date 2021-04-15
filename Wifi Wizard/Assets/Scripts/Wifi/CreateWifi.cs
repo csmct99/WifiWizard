@@ -14,10 +14,10 @@ public class CreateWifi : MonoBehaviour
     {
         area = Instantiate(wifiShape, transform.position + (transform.up*offset), transform.rotation * wifiShape.transform.rotation);
         area.transform.localScale = Vector3.Scale(area.transform.localScale, new Vector3(sizeXZ, sizeXZ, sizeY));
+        area.transform.SetParent(gameObject.transform);
     }
 
-    void OnDestroy()
-    {
-        Destroy(area);
+    void OnDestroy() {
+        //Destroy(area);
     }
 }

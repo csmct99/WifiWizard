@@ -94,13 +94,13 @@ GameObject:
   - component: {fileID: 3192950752313181942}
   - component: {fileID: 3192950752313181940}
   - component: {fileID: 3192950752313181943}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3192950752313181942
 Transform:
   m_ObjectHideFlags: 0
@@ -267,12 +267,19 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  VisibilityLayersWithVisualizer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  VisibilityLayersWithoutVisualizer:
+    serializedVersion: 2
+    m_Bits: 3383
   speed: 20
   gravity: -60
   jumpHeight: 3
   groundDistance: 0.5
   mouseSensitivity: 456
   pauseButton: 27
+  visualizerButton: 118
 --- !u!114 &3639684375958703542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,8 +296,8 @@ MonoBehaviour:
   middleClickInstantiate: {fileID: 4898523421059965267, guid: 2d44512eb250de540b590985b353d5e2, type: 3}
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 1536
-  maxDistance: 5
+    m_Bits: 3584
+  maxDistance: 20
 --- !u!114 &5917766960135771646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,4 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ap1: {fileID: 4898523421059965267, guid: 41f1f90f3ade262409977504fc4a04b6, type: 3}
   ap2: {fileID: 4898523421059965267, guid: 2d44512eb250de540b590985b353d5e2, type: 3}
-
+  ap3: {fileID: 0}
+  gameManager: {fileID: 0}
+  UI: {fileID: 0}
+  contents: []

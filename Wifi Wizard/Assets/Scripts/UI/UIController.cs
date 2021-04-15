@@ -13,9 +13,17 @@ public class UIController : MonoBehaviour {
     private GameObject pauseMenu;
 
     private TMP_Text tooltipText;
+    private TMP_Text locationText;
+
+    private TMP_Text goalText;
     private GameObject tooltip;
 
+    [SerializeField] private TMP_Text pauseMenuHighScore;
+
     private bool tooltipWasActive = false;
+
+    private int connectedAps = 0;
+    private int totalConnectionPoints = 0;
 
 
     void Start() {
@@ -27,6 +35,14 @@ public class UIController : MonoBehaviour {
             }else{
                 pauseMenu = canvas.transform.Find("PauseMenu").gameObject; //Bad practice to search the entire level for a string but its a small project so idc. It wont be bad at this scale.
                 if(pauseMenu == null) Debug.LogError("No pause menu found.");
+
+                goalText = canvas.transform.Find("Information").transform.Find("GoalText").gameObject.GetComponent<TMP_Text>();
+                if (goalText == null) Debug.LogError("No goal text found.");
+
+                locationText = canvas.transform.Find("Information").transform.Find("LocationLabel").gameObject.GetComponent<TMP_Text>();
+                if (locationText == null) Debug.LogError("No location label found.");
+
+                if (pauseMenuHighScore == null) Debug.LogError("No highscoire label set in pause menu");
             }
         }
 
@@ -40,7 +56,19 @@ public class UIController : MonoBehaviour {
 
 
     void Update() {
-        
+
+    }
+
+    public void ChangeConnectedPoints(int change){
+        connectedAps += change;
+        float score = Mathf.Round((float)connectedAps / (float)totalConnectionPoints * 100);
+
+        GameManager.UpdateScore(score); //Tell the game manager that this is the new score.
+        goalText.SetText("Coverage: " + score + "%");
+    }
+
+    public void SubscribeConnectedPoint(){
+        totalConnectionPoints++;
     }
 
     public void UpdateInventory(List<AccessPoint> contents){
@@ -73,6 +101,7 @@ public class UIController : MonoBehaviour {
         Time.timeScale = (isPaused) ? 0 : 1;
         pauseMenu.SetActive(isPaused);
         GameManager.GamePaused = isPaused;
+        pauseMenuHighScore.SetText("Highscore: " + GameManager.GetHighscore().ToString() + "%");
 
         if(tooltip.activeSelf && isPaused){
             tooltip.SetActive(false);
@@ -90,6 +119,9 @@ public class UIController : MonoBehaviour {
         this.tooltip.SetActive(tooltip.Trim() != "");
     }
 
+    public void ChangeLocation(string location){
+        locationText.SetText(location);
+    }
 
 
 }

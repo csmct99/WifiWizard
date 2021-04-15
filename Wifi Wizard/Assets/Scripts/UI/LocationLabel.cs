@@ -6,21 +6,18 @@ using UnityEngine;
 public class LocationLabel : MonoBehaviour
 {
     private TextMeshProUGUI locationLabel;
+    private UIController ui;
 
-    private void Start()
-    {
-        Debug.Log("Start");
-        locationLabel = GameObject.Find("LocationLabel").GetComponent<TextMeshProUGUI>();
-        Debug.Log("Start locationLabel = " + locationLabel);
+    private void Start() {
+        ui = GameManager.FindUI();
     }
 
 
     /*
      * Change the HUD label upon collision
      */
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.name);
-        locationLabel.text = other.name;
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("Player moved to :" + gameObject.name);
+        ui.ChangeLocation(gameObject.name);
     }
 }

@@ -703,7 +703,7 @@ Transform:
   - {fileID: 2053310957}
   - {fileID: 277161519}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351077870
 GameObject:
@@ -931,7 +931,7 @@ Transform:
   - {fileID: 967017476}
   - {fileID: 81414123}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482754239
 GameObject:
@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3192950752840098778, guid: ab904c97d6a00d04692115ba298ef440, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3192950752840098778, guid: ab904c97d6a00d04692115ba298ef440, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1851,25 +1851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee09022b0e93aa84ca2576a04e3087a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: PlayerStep
-    clip: {fileID: 8300000, guid: 9f3ac249d8b3248449da403cd23410d0, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PlaceAPSuccess
-    clip: {fileID: 8300000, guid: d5892b2238c1fda47bc702bd6f2f858e, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PlaceAPFailure
-    clip: {fileID: 8300000, guid: 6c6581fdebc5c244296cb039ae45ef99, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
 --- !u!4 &884846758
 Transform:
   m_ObjectHideFlags: 0
@@ -2712,7 +2693,7 @@ Transform:
   - {fileID: 913409047}
   - {fileID: 1908711526}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470376964
 GameObject:
@@ -3314,7 +3295,7 @@ Transform:
   - {fileID: 713443339}
   - {fileID: 858059799}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905781140
 GameObject:
@@ -3883,7 +3864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 959110110934734727, guid: 45957bb568e09524c803d701648bc18e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 959110110934734727, guid: 45957bb568e09524c803d701648bc18e, type: 3}
       propertyPath: m_AnchorMax.x

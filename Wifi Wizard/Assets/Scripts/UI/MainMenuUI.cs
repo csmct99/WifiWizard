@@ -16,7 +16,7 @@ public class MainMenuUI : MonoBehaviour
     }
 
     public void BeginGame() {
-        SceneManager.LoadScene("Level01", LoadSceneMode.Single); //Close current scene and begin loading the new one.
+        SceneManager.LoadScene("Demo Level", LoadSceneMode.Single); //Close current scene and begin loading the new one.
     }
 
     public void ExportData(){

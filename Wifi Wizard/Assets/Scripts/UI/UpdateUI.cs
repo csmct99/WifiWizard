@@ -15,6 +15,7 @@ public class UpdateUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         int total = 0;
         int connected = 0;
         foreach (GameObject point in GameObject.FindGameObjectsWithTag("Point"))
@@ -26,5 +27,6 @@ public class UpdateUI : MonoBehaviour
         int currentPercent = (int)(connected / (double)total * 100);
         gameObject.GetComponent<Text>().color = currentPercent >= neededPercent ? Color.green : Color.black;
         gameObject.GetComponent<Text>().text = $"{currentPercent}/{neededPercent}%";
+        */
     }
 }
