@@ -4,6 +4,8 @@ import json
 from os import listdir
 from os.path import isfile, join
 
+#Todo: sort functions
+
 def Decrypt(value):
     password = base64.b64decode('fiBSzZHjhgjOi0FPNNrrF5AIj7mSCOXJDH5aV0NDtQA=') # This value is fixed in Unity binaries and in this
     salt = base64.b64decode('l1EiOF1emAoYJrErdlWDCg==') # This value is fixed in Unity binaries and in this
